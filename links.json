@@ -67,6 +67,7 @@
   {
     "category": "❌ The Blacklist — Cracked game sites to avoid",
     "sites": [
+      { "nom": "Potiongang", "url": "", "desc": "" },
       { "nom": "IGG Games / PCGamesTorrents / LoadGames / GamesTorrents", "url": "", "desc": "" },
       { "nom": "SteamUnlocked / GOG Unlocked / ROMs Unlocked", "url": "", "desc": "" },
       { "nom": "TLauncher", "url": "", "desc": "Contains spyware." },
