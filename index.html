@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>⚓ Anchor</title>
+  <meta name="description" content="Anchor — a megathread of useful and safe links." />
+  <style>
+    :root {
+      --bg: #09090b;
+      --bg-soft: #18181b;
+      --card: #18181b;
+      --card-hover: #1f1f23;
+      --border: #27272a;
+      --border-soft: #3f3f46;
+      --text: #f4f4f5;
+      --text-muted: #a1a1aa;
+      --text-dim: #71717a;
+      --accent: #6366f1;
+      --accent-2: #818cf8;
+      --accent-glow: rgba(99, 102, 241, 0.35);
+      --danger: #f87171;
+      --danger-bg: rgba(248, 113, 113, 0.08);
+      --danger-border: rgba(248, 113, 113, 0.35);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      background-image:
+        radial-gradient(900px 500px at 80% -10%, rgba(99, 102, 241, 0.10), transparent 60%),
+        radial-gradient(700px 400px at 0% 0%, rgba(129, 140, 248, 0.08), transparent 55%);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 1.25rem 6rem;
+    }
+
+    /* Header */
+    header { text-align: center; margin-bottom: 3.5rem; }
+
+    .title {
+      font-size: clamp(2.5rem, 7vw, 4.25rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      padding: 0.1em 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25em;
+    }
+
+    .title .anchor-icon {
+      -webkit-text-fill-color: initial;
+      color: var(--accent-2);
+      line-height: 1;
+    }
+
+    .title .title-text {
+      background: linear-gradient(135deg, #ffffff 0%, var(--accent-2) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      margin-top: 0.85rem;
+      color: var(--text-muted);
+      font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    }
+
+    .divider {
+      width: 64px;
+      height: 3px;
+      margin: 1.5rem auto 0;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+
+    /* Safety notice */
+    .notice {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.1rem;
+      margin-bottom: 3rem;
+      padding: 1.4rem 1.5rem;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.14), rgba(129, 140, 248, 0.04));
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius);
+    }
+    .notice-item { display: flex; gap: 0.85rem; align-items: flex-start; }
+    .notice-icon { font-size: 1.5rem; line-height: 1.3; }
+    .notice-item strong { display: block; color: var(--text); font-size: 1rem; margin-bottom: 0.2rem; }
+    .notice-item p { color: var(--text-muted); font-size: 0.9rem; }
+    .notice a { color: var(--accent-2); text-decoration: none; font-weight: 600; }
+    .notice a:hover { text-decoration: underline; }
+
+    /* Sections */
+    .category { margin-bottom: 3rem; }
+
+    .category-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .category-count {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-dim);
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      padding: 0.15rem 0.6rem;
+    }
+
+    /* Card grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.1rem;
+    }
+
+    .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.35rem;
+      transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--accent-glow), transparent 45%);
+      opacity: 0;
+      transition: opacity 0.22s ease;
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-soft);
+      background: var(--card-hover);
+      box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.7), 0 0 0 1px var(--accent-glow);
+    }
+
+    .card:hover::before { opacity: 1; }
+
+    .card-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .card-name a {
+      color: inherit;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.18s ease;
+    }
+    .card-name a:hover { color: var(--accent-2); }
+    .card-name a svg { width: 14px; height: 14px; opacity: 0.65; flex-shrink: 0; }
+
+    .card-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .card-btn {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fff;
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      padding: 0.55rem 1.05rem;
+      border-radius: 9px;
+      border: 1px solid transparent;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+    }
+
+    .card-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px -8px var(--accent-glow);
+      opacity: 0.95;
+    }
+
+    .card-btn svg { width: 15px; height: 15px; }
+
+    /* Blacklist variant */
+    .category.danger .category-title { color: var(--danger); border-bottom-color: var(--danger-border); }
+    .card.danger { border-color: var(--danger-border); background: var(--danger-bg); }
+    .card.danger::before { background: linear-gradient(135deg, rgba(248, 113, 113, 0.18), transparent 45%); }
+    .card.danger:hover { box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.7), 0 0 0 1px var(--danger-border); }
+    .card.danger .card-name { color: var(--danger); }
+    .badge-danger {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--danger);
+      background: transparent;
+      border: 1px solid var(--danger-border);
+      padding: 0.5rem 0.95rem;
+      border-radius: 9px;
+    }
+
+    /* Empty / status states */
+    .empty-state {
+      border: 1px dashed var(--border-soft);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .status {
+      text-align: center;
+      color: var(--text-muted);
+      padding: 3rem 1rem;
+    }
+
+    .status.error { color: var(--danger); }
+
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 600px) {
+      .wrap { padding: 2.5rem 1rem 4rem; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1 class="title"><span class="anchor-icon">⚓</span><span class="title-text">Anchor</span></h1>
+      <p class="subtitle">Useful &amp; safe links — carefully curated.</p>
+      <div class="divider"></div>
+    </header>
+
+    <section class="notice">
+      <div class="notice-item">
+        <span class="notice-icon">🦊</span>
+        <div>
+          <strong>Browser &amp; extensions</strong>
+          <p>Browse with <a href="https://www.mozilla.org/firefox/" target="_blank" rel="noopener noreferrer">Firefox</a> and install <a href="https://addons.mozilla.org/firefox/addon/ublock-origin/" target="_blank" rel="noopener noreferrer">uBlock Origin</a> + <a href="https://addons.mozilla.org/firefox/addon/violentmonkey/" target="_blank" rel="noopener noreferrer">Violentmonkey</a>.</p>
+        </div>
+      </div>
+      <div class="notice-item">
+        <span class="notice-icon">🗜️</span>
+        <div>
+          <strong>Extracting archives</strong>
+          <p>Use <a href="https://www.win-rar.com/" target="_blank" rel="noopener noreferrer">WinRAR</a> or <a href="https://www.7-zip.org/" target="_blank" rel="noopener noreferrer">7-Zip</a> to extract game archives.</p>
+        </div>
+      </div>
+    </section>
+
+    <main id="content">
+      <p class="status" id="status">Loading links…</p>
+    </main>
+
+  </div>
+
+  <script>
+    const content = document.getElementById("content");
+    const status = document.getElementById("status");
+
+    // A category is the blacklist if its name contains the ❌ marker.
+    const isBlacklist = (name) => name.includes("❌");
+
+    const escapeHtml = (value) =>
+      String(value ?? "").replace(/[&<>"']/g, (ch) => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+      }[ch]));
+
+    // Keep only entries that actually have something to show.
+    const hasContent = (site) => Boolean((site?.nom || "").trim() || (site?.url || "").trim());
+
+    const visitIcon = `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+        <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+      </svg>`;
+
+    function buildCard(site, danger) {
+      const card = document.createElement("div");
+      card.className = danger ? "card danger" : "card";
+
+      const name = escapeHtml(site.nom) || "Untitled";
+      const desc = escapeHtml(site.desc);
+      const url = (site.url || "").trim();
+
+      // The link lives inside the name itself (no separate button).
+      let nameHtml;
+      if (!danger && url) {
+        nameHtml = `<h3 class="card-name"><a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${name}${visitIcon}</a></h3>`;
+      } else {
+        nameHtml = `<h3 class="card-name">${name}</h3>`;
+      }
+
+      const descHtml = desc ? `<p class="card-desc">${desc}</p>` : "";
+
+      let footer = "";
+      if (danger) {
+        footer = `<span class="badge-danger">⚠️ Avoid</span>`;
+      } else if (!url) {
+        footer = `<span class="badge-danger" style="color:var(--text-dim);border-color:var(--border-soft)">Missing link</span>`;
+      }
+
+      card.innerHTML = `${nameHtml}${descHtml}${footer}`;
+      return card;
+    }
+
+    function buildCategory(entry) {
+      const danger = isBlacklist(entry.category || "");
+      const sites = (entry.sites || []).filter(hasContent);
+
+      const section = document.createElement("section");
+      section.className = danger ? "category danger" : "category";
+
+      const title = document.createElement("h2");
+      title.className = "category-title";
+      title.innerHTML = `<span>${escapeHtml(entry.category)}</span>
+        <span class="category-count">${sites.length}</span>`;
+      section.appendChild(title);
+
+      if (sites.length === 0) {
+        const empty = document.createElement("div");
+        empty.className = "empty-state";
+        empty.textContent = "No links yet — add some in links.json.";
+        section.appendChild(empty);
+      } else {
+        const grid = document.createElement("div");
+        grid.className = "grid";
+        sites.forEach((site) => grid.appendChild(buildCard(site, danger)));
+        section.appendChild(grid);
+      }
+      return section;
+    }
+
+    async function loadLinks() {
+      try {
+        const res = await fetch("links.json", { cache: "no-cache" });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        if (!Array.isArray(data)) throw new Error("Invalid format: an array is expected.");
+
+        status.remove();
+        if (data.length === 0) {
+          content.innerHTML = `<p class="status">No categories to display.</p>`;
+          return;
+        }
+        data.forEach((entry) => content.appendChild(buildCategory(entry)));
+      } catch (err) {
+        status.className = "status error";
+        status.textContent = `Couldn't load links.json: ${err.message}`;
+      }
+    }
+
+    loadLinks();
+  </script>
+</body>
+</html>

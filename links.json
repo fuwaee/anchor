@@ -1,0 +1,105 @@
+[
+  {
+    "category": "🎮 Video Games (Repacks)",
+    "sites": [
+      {
+        "nom": "FitGirl Repacks",
+        "url": "https://fitgirl-repacks.site/",
+        "desc": "Torrent-based — use a VPN."
+      },
+      {
+        "nom": "DODI Repacks",
+        "url": "https://dodi-repacks.site/",
+        "desc": "Torrent-based — use a VPN."
+      },
+      {
+        "nom": "ElAmigos",
+        "url": "https://elamigos.site/",
+        "desc": ""
+      }
+    ]
+  },
+  {
+    "category": "🎮 Video Games (Direct Download)",
+    "sites": [
+      {
+        "nom": "SteamRIP",
+        "url": "https://steamrip.com/",
+        "desc": ""
+      },
+      {
+        "nom": "GOG-Games",
+        "url": "https://www.gog-games.to/",
+        "desc": ""
+      },
+      {
+        "nom": "OvaGames",
+        "url": "https://www.ovagames.com/",
+        "desc": ""
+      },
+      {
+        "nom": "Online-Fix",
+        "url": "https://online-fix.me/",
+        "desc": "For multiplayer games."
+      },
+      {
+        "nom": "Cracked-Games",
+        "url": "https://cracked-games.org/",
+        "desc": "Games and software."
+      },
+      {
+        "nom": "AnkerGames",
+        "url": "https://ankergames.net/",
+        "desc": ""
+      }
+    ]
+  },
+  {
+    "category": "❌ The Blacklist — Software to avoid",
+    "sites": [
+      { "nom": "BitTorrent / µTorrent", "url": "", "desc": "" },
+      { "nom": "Any \"cracked\" VPN", "url": "", "desc": "" },
+      { "nom": "Avast", "url": "", "desc": "" },
+      { "nom": "Bitlord", "url": "", "desc": "" },
+      { "nom": "CCleaner", "url": "", "desc": "" }
+    ]
+  },
+  {
+    "category": "❌ The Blacklist — Cracked game sites to avoid",
+    "sites": [
+      { "nom": "IGG Games / PCGamesTorrents / LoadGames / GamesTorrents", "url": "", "desc": "" },
+      { "nom": "SteamUnlocked / GOG Unlocked / ROMs Unlocked", "url": "", "desc": "" },
+      { "nom": "TLauncher", "url": "", "desc": "Contains spyware." },
+      { "nom": "The Pirate Bay / TPB", "url": "", "desc": "" },
+      { "nom": "7launcher / SE7EN", "url": "", "desc": "Uses their own launcher." },
+      { "nom": "AGFY", "url": "", "desc": "Scam links." },
+      { "nom": "AimHaven", "url": "", "desc": "Malicious redirect ads." },
+      { "nom": "Apunkagames", "url": "", "desc": "" },
+      { "nom": "BBRepacks", "url": "", "desc": "Fake BlackBox Repacks, contain malware." },
+      { "nom": "Chovka (Repack.Info)", "url": "", "desc": "Injects scheduled tasks and registry entries for ads." },
+      { "nom": "Corepack", "url": "", "desc": "Stolen releases and has been caught with malware." },
+      { "nom": "Crohasit / Crotorrents", "url": "", "desc": "Has affiliations with owners of SteamUnlocked." },
+      { "nom": "Downloadly", "url": "", "desc": "Contains cryptominers." },
+      { "nom": "Empresstorrents", "url": "", "desc": "High malware risk." },
+      { "nom": "FileCR", "url": "", "desc": "Malware risk." },
+      { "nom": "Game3rb / MrPcGamer", "url": "", "desc": "Malicious fake download links baked into the page." },
+      { "nom": "Games4theworld", "url": "", "desc": "Uses The Pirate Bay." },
+      { "nom": "GameFabrique", "url": "", "desc": "Adware installers, uploads from untrusted sites such as IGG Games." },
+      { "nom": "Hammer App / Onetapp", "url": "", "desc": "Scam." },
+      { "nom": "kLauncher (minecraft)", "url": "", "desc": "Contains malware." },
+      { "nom": "Koyso", "url": "", "desc": "Missing source info." },
+      { "nom": "Nexus Games / WorldOfPCGames / steamrepacks / unlocked-games", "url": "", "desc": "Malicious downloads." },
+      { "nom": "nosTEAM", "url": "", "desc": "Malware risk, uploaded BTC miners." },
+      { "nom": "\"not games\" google drive account", "url": "", "desc": "Unknown sources." },
+      { "nom": "OceanOfGames / OceanOfAPKs", "url": "", "desc": "High malware risk." },
+      { "nom": "PiviGames", "url": "", "desc": "Gets their games from untrusted sources." },
+      { "nom": "RepackGames", "url": "", "desc": "Mislabel games and steal releases." },
+      { "nom": "Rgmechanics", "url": "", "desc": "Fake site." },
+      { "nom": "Rutor(.)org", "url": "", "desc": "False site, malware distributor." },
+      { "nom": "Steamtools / SWA V2 / Mugi Plugin / Ryuu's Manifest Tool V2 / v8tools / VTeam", "url": "", "desc": "" },
+      { "nom": "Seyter / Qoob", "url": "", "desc": "Repacks contain bitcoin miners." },
+      { "nom": "Wifi4games", "url": "", "desc": "Malware downloads." },
+      { "nom": "Zona launcher", "url": "", "desc": "Unknown sources." }
+    ]
+  }
+]
