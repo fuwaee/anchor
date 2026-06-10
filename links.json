@@ -1,5 +1,20 @@
 [
   {
+    "category": "⭐ Recommended (Reliable Cracks)",
+    "sites": [
+      {
+        "nom": "FMHY",
+        "url": "https://fmhy.net/downloading",
+        "desc": "Preferred to find reliable crack sites (Always good, all in English)."
+      },
+      {
+        "nom": "r/piratedgames megathread",
+        "url": "https://rentry.org/pgames",
+        "desc": "Most reliable site for searching cracked game sites."
+      }
+    ]
+  },
+  {
     "category": "🎮 Video Games (Repacks)",
     "sites": [
       {
@@ -15,6 +30,21 @@
       {
         "nom": "ElAmigos",
         "url": "https://elamigos.site/",
+        "desc": ""
+      }
+    ]
+  },
+  {
+    "category": "💻 Software",
+    "sites": [
+      {
+        "nom": "LRepacks",
+        "url": "https://lrepacks.net/",
+        "desc": ""
+      },
+      {
+        "nom": "soft98",
+        "url": "https://soft98.ir/",
         "desc": ""
       }
     ]
