@@ -23,9 +23,9 @@
         "desc": "Torrent-based — use a VPN."
       },
       {
-        "nom": "DODI Repacks",
-        "url": "https://dodi-repacks.site/",
-        "desc": "Torrent-based — use a VPN."
+        "nom": "/",
+        "url": "/",
+        "desc": "/"
       },
       {
         "nom": "ElAmigos",
